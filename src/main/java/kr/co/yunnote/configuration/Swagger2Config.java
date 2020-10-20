@@ -12,13 +12,19 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class Swagger2Config {
 
+
+    //  Docket - Swagger 설정의 핵심 Bean
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
+                // swagger에서 제공해주는 응답 코드에 대한 기본 메세지 제거 .
+                .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("kr.co.yunnote.ui"))
-                .paths(PathSelectors.any())
+
+                // api 스펙이 작성되는 패키지를 지정
+                .apis(RequestHandlerSelectors.basePackage("kr.co.yunnote.interfaces"))
+                .paths(PathSelectors.ant("/api/v1/**"))
                 .build();
     }
 

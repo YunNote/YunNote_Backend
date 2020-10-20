@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+
+// Swagger2 활성화
 @EnableSwagger2
 public class YunnoteApplication {
 
