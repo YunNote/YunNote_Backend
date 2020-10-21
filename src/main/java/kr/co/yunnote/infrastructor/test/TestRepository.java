@@ -28,8 +28,7 @@ public class TestRepository {
     public Test findTestById(Long id) {
         QTest qTest = new QTest("qTest");
         return queryFactory
-                .select(qTest)
-                .from(qTest)
+                .selectFrom(qTest)
                 .where(qTest.id.eq(id))
                 .fetchOne();
     }
